@@ -3,7 +3,7 @@ import TextField from '@/components/atoms/TextField'
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { LoginSchema, loginSchema } from './loginSchema';
+import { LoginSchema, loginSchema } from '@/schemas/loginSchema';
 import SubmitButton from '@/components/atoms/SubmitButton';
 import { useLoginUser } from '@/hooks/user/useLogin';
 import { toast } from 'react-toastify';
