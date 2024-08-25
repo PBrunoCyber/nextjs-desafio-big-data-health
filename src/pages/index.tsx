@@ -1,118 +1,59 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+/* eslint-disable @next/next/no-img-element */
+import CardCategory from "@/components/atoms/CardCategory";
+import LinkButton from "@/components/atoms/LinkButton";
+import Footer from "@/components/molecules/Footer";
+import NavBar from "@/components/molecules/NavBar";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div>
+      <NavBar />
+      <Box className="relative flex flex-col gap-[70px] py-[100px] items-center justify-center p-[10px]">
+        <Box className="flex flex-col items-center gap-[20px]">
+          <h1 className="font-bold font-primary text-[40pt] text-center leading-[4rem]">Bem-vindo à nossa loja online</h1>
+          <p className="font-secondary text-center">Encontre as últimas tendências em roupas, jóias, eletrônicos e muito mais.</p>
+          <LinkButton variant="contained" className="w-[240px] text-center" href="/explorar">
+            <p className="font-primary text-center">Ver Produtos</p>
+          </LinkButton>
+        </Box>
+        <img src="/images/shop-cart.png" width={1200} height={40} alt="" className="rounded-[20px]" />
+        <Box maxWidth={'1200px'} className="mt-[20px] w-full flex flex-wrap justify-between">
+          <Box>
+            <p className="font-primary">Conveniência</p>
+            <h1 className="font-primary font-bold">Benefícios Exclusivos para Você</h1>
+          </Box>
+          <Box className="max-w-[500px] flex flex-col gap-[20px]">
+            <p className="font-primary">Na nossa loja, você aproveita frete grátis, devoluções fáceis e um atendimento ao cliente disponível 24/7. Compre com tranquilidade e comodidade.</p>
+            <LinkButton variant="outlined" className="max-w-[200px] text-center" href="/explorar">Saiba Mais</LinkButton>
+          </Box>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        </Box>
+        <Box maxWidth={"1200px"} className="bg-[#ddd] rounded-[20px] flex flex-col gap-[20px] items-center w-full px-[10px] py-[40px]">
+          <h1 className="font-primary font-bold max-w-[500px] text-center">Apresentação das categorias de produtos</h1>
+          <Box className="flex gap-[20px] flex-wrap">
+          <CardCategory
+            title="Roupas Masculinas"
+            description="Encontre uma variedade de roupas masculinas para todos os estilos e ocasiões."
+            src="/images/man.jpg"
+            href="/explorar?category=Men's clothes"
+          />
+          <CardCategory
+            title="Roupas Femininas"
+            description="Descubra uma ampla seleção de roupas femininas para todas as idades e gostos."
+            src="/images/woman.png"
+            href="/explorar?category=Men's clothes"
+          />
+          <CardCategory
+            title="Jóias"
+            description="Explore nossa coleção de joias elegantes e sofisticadas para complementar seu estilo."
+            src="/images/joias.png"
+            href="/explorar?category=Men's clothes"
+          />
+          </Box>
+        </Box>
+      </Box>
+      <Footer/>
+    </div>
   );
 }
