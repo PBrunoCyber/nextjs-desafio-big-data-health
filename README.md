@@ -1,40 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Olá pessoal, espero que gostem do que preparei. Foi muito cansativo!
 
-First, run the development server:
+Para rodar o projeto é bem simples:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Primeiro realize o git clone da branch master: ``` git clone -b master <link-repo>```
+- Segundo faça a instalação do node_modules ``` npm install ``` ou ``` yarn ```
+- Terceiro rode a aplicação na sua máquina com o comando ``` npm run dev ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) com seu browser para ver o resultado.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Observação importante!!!
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Não deu tempo fazer testes automatizados nem documentação, pois comecei sábado a noite por conta da minha religião. Porém a aplicação está 100% com todos os outros requisitos atendidos, portanto não tem comando para executar os testes.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Tecnologias Utilizadas!!!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Estilização:
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Mui Material
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Tailwind Css
 
-## Learn More
+#### Validação de formulário:
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) React-Hook-Form 
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Zod
 
-To learn more about Next.js, take a look at the following resources:
+#### Biblioteca de ícones
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Lucide React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Gerenciamente de cookies
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Nookies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Otimização e realização de consultas
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) React Query
 
-## Deploy on Vercel
+#### Requisições Http 
+- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Axios
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploy na Vercel
+
+O deploy foi realizado e você pode acessar no link a seguir: [Desafio Big Data Health Tech](https://nextjs-desafio-big-data-health.vercel.app).

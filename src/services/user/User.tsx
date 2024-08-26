@@ -1,28 +1,32 @@
 import { AxiosError } from 'axios'
-import { IRegisterResponse } from './interface/IUserService'
-import { endpointsUser } from '../endpoints'
+import { IRegister, IRegisterResponse } from './interface/IUserService'
+import { endpoints } from '../endpoints'
 import { clientAxios as api } from '../../pages/api/client';
 
 const login = async (params: {
-    email: string
+    username: string
     password: string
 }): Promise<string> => {
     try {
-        const { data } = await api.post(endpointsUser.login, params)
+        const { data } = await api.post(endpoints.login, params)
         return data
     } catch (e: any) {
         throw new AxiosError(e);
     }
 }
 
-const register = async (params: {
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-}): Promise<IRegisterResponse> => {
+const register = async (params: IRegister): Promise<IRegisterResponse> => {
     try {
-        const { data } = await api.post(endpointsUser.register, params)
+        const { data } = await api.post(endpoints.register, params)
+        return data
+    } catch (e: any) {
+        throw new AxiosError(e);
+    }
+}
+
+const getUser = async (id: string): Promise<IRegisterResponse> => {
+    try {
+        const { data } = await api.get(endpoints.user.replace(':id', id));
         return data
     } catch (e: any) {
         throw new AxiosError(e);
@@ -32,4 +36,5 @@ const register = async (params: {
 export const userService = {
     login,
     register,
+    getUser,
 }
