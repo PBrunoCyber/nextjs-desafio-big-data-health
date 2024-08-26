@@ -16,24 +16,24 @@ Abra [http://localhost:3000](http://localhost:3000) com seu browser para ver o r
 ## Tecnologias Utilizadas!!!
 
 #### Estilização:
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Mui Material
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Tailwind Css
+- 🤖 Mui Material
+- 🤖 Tailwind Css
 
 #### Validação de formulário:
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) React-Hook-Form 
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Zod
+- 🤖 React-Hook-Form 
+- 🤖 Zod
 
 #### Biblioteca de ícones
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Lucide React
+- 🤖 Lucide React
 
 #### Gerenciamente de cookies
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Nookies
+- 🤖 Nookies
 
 #### Otimização e realização de consultas
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) React Query
+- 🤖 React Query
 
 #### Requisições Http 
-- ![Zap](https://cdn-icons-png.flaticon.com/256/747/747423.png) Axios
+- 🤖 Axios
 
 
 ## Deploy na Vercel
