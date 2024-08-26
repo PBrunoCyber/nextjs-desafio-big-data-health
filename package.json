@@ -22,6 +22,7 @@
     "lucide-react": "^0.435.0",
     "next": "14.2.6",
     "nextjs_desafio_big_data_health": "file:",
+    "nextjs-progressbar": "^0.0.16",
     "nookies": "^2.5.2",
     "npm": "^10.8.2",
     "react": "^18",
