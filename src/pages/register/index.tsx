@@ -9,6 +9,8 @@ import { useRegisterUser } from '@/hooks/user/useRegister';
 import { toast } from 'react-toastify';
 import LinkButton from '@/components/atoms/LinkButton';
 import { useRouter } from 'next/navigation';
+import { parseCookies } from 'nookies';
+import { GetServerSideProps } from 'next';
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -27,18 +29,18 @@ const RegisterPage = () => {
     })
 
     const onSubmit = (data: any) => {
-        register({ 
-            email: data.email, 
-            password: data.password, 
+        register({
+            email: data.email,
+            password: data.password,
             name: {
-                firstname: data.firstName, 
+                firstname: data.firstName,
                 lastname: data.lastName
-            }, 
+            },
             address: {
                 city: "Teresina",
                 geolocation: {
                     lat: '-37.3159',
-                    long:'81.1496'
+                    long: '81.1496'
                 },
                 street: "Hello",
                 number: 3,
@@ -99,6 +101,24 @@ const RegisterPage = () => {
             </form>
         </div>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+
+    const { token } = parseCookies(ctx);
+
+    if (token) {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false,
+            },
+        };
+    }
+
+    return {
+        props: {}
+    }
 }
 
 export default RegisterPage
