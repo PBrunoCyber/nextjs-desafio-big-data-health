@@ -13,7 +13,7 @@ Abra [http://localhost:3000](http://localhost:3000) com seu browser para ver o r
 
 - Não deu tempo fazer testes automatizados nem documentação, pois comecei sábado a noite por conta da minha religião. Porém a aplicação está 100% com todos os outros requisitos atendidos, portanto não tem comando para executar os testes.
 
-## Tecnologias Utilizadas!!!
+## Tecnologias Utilizadas
 
 #### Estilização:
 - 🤖 Mui Material
