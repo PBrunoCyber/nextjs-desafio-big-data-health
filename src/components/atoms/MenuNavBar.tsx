@@ -5,6 +5,7 @@ import { LayoutDashboard, LogOut, ShoppingCart } from 'lucide-react';
 import { Divider } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import { useRouter } from 'next/router';
+import Button from './Button';
 
 interface MenuNavbarProps {
     anchorEl: null | HTMLElement;
@@ -64,6 +65,10 @@ export default function MenuNavbar({ anchorEl, setAnchorEl, logout, className }:
         setAnchorEl(null);
     };
 
+    const handleCloseCarrinho = () => {
+        router.push('/carrinho');
+    }
+
     return (
         <StyledMenu
             id="basic-menu"
@@ -72,8 +77,11 @@ export default function MenuNavbar({ anchorEl, setAnchorEl, logout, className }:
             disableScrollLock
             onClose={handleClose}
         >
-            <MenuItem onClick={handleClose} className='text-[#303030] flex gap-[5px] items-center'><ShoppingCart /> Seu Carrinho</MenuItem>
-            <MenuItem onClick={handleClose} className='text-[#303030] flex gap-[5px] items-center'><LayoutDashboard /> Overview</MenuItem>
+            <MenuItem onClick={handleCloseCarrinho}>
+                <p className='text-[#303030] flex gap-[5px] items-center hover:cursor-pointer font-primary'>
+                    <ShoppingCart /> Seu Carrinho
+                </p>
+            </MenuItem>
             <Divider />
             <MenuItem onClick={logout} className='text-[#FF2313] flex gap-[5px] items-center'><LogOut /> <p>Logout</p></MenuItem>
         </StyledMenu>
