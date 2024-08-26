@@ -8,6 +8,7 @@ import '../styles/globals.css';
 import { queryClient } from "@/config/queryClient";
 import 'react-toastify/dist/ReactToastify.css';
 import { CartProvider } from "@/context/CartContext";
+import NextNProgress from 'nextjs-progressbar';
 
 
 const raleway = Raleway({
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <div id="root" className={`${raleway.variable} ${roboto.variable}`}>
         <CartProvider>
+          <NextNProgress color="#FF2313"/>
           <Component {...pageProps} />
         </CartProvider>
         <ToastContainer />
