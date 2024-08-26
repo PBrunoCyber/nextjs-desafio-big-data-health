@@ -1,33 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
 import TextField from '@/components/atoms/TextField'
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { LoginSchema, loginSchema } from '@/schemas/loginSchema';
 import SubmitButton from '@/components/atoms/SubmitButton';
 import { useLoginUser } from '@/hooks/user/useLogin';
-import { toast } from 'react-toastify';
 import LinkButton from '@/components/atoms/LinkButton';
+import nookies from 'nookies';
+import { GetServerSideProps } from 'next';
+import { parseCookies } from "nookies";
+import { useRouter } from 'next/router';
+import { jwtDecode } from 'jwt-decode';
+import { CartContext } from '@/context/CartContext';
 
 const LoginPage = () => {
-
+    const router = useRouter();
     const {
         control,
-        handleSubmit,
-        formState: { errors }
+        handleSubmit
     } = useForm<LoginSchema>({
         resolver: zodResolver(loginSchema),
     });
 
-    const { login } = useLoginUser({
+    const { updateCart } = useContext(CartContext);
+
+
+    const { login, isLoading } = useLoginUser({
         onSuccess: (data) => {
-            console.log(data);
-            toast.success('Seja bem-vindo!')
+            const user = jwtDecode(data.token);
+            updateCart(Number(user?.sub) ?? 0);
+            nookies.set(null, 'token', data.token, {
+                maxAge: 5 * 24 * 60 * 60, //5 dias
+                path: '/',
+            })
+
+            router.push('/');
         },
     })
 
     const onSubmit = (data: any) => {
-        login({ email: data.email, password: data.password })
+        login({ username: data.username, password: data.password })
     }
 
     return (
@@ -40,9 +53,9 @@ const LoginPage = () => {
                 <div className='flex flex-col gap-[10px] w-full mb-[20px] px-[30px] py-[10px]'>
                     <TextField
                         control={control}
-                        label='Email'
-                        placeholder='Digite seu e-mail'
-                        name='email'
+                        label='Username'
+                        placeholder='Digite seu nome de usuário'
+                        name='username'
                         className='grow-[1px]'
                         type="input"
                     />
@@ -59,13 +72,30 @@ const LoginPage = () => {
                         <p>Não possui cadastro?</p>
                         <LinkButton variant='text' href='/register'>Registre-se</LinkButton>
                     </div>
-                    <SubmitButton variant='contained' className='font-bold' type='submit'>
+                    <SubmitButton isLoading={isLoading} className={"font-bold"} variant='contained' type='submit'>
                         Fazer Login
                     </SubmitButton>
                 </div>
             </form>
         </div>
     )
+}
+export const getServerSideProps: GetServerSideProps = async (ctx)=> {
+    
+    const { token } = parseCookies(ctx);
+
+    if (token) {
+        return {
+          redirect: {
+            destination: "/",
+            permanent: false,
+          },
+        };
+      }
+
+    return {
+        props: {}
+    }
 }
 
 export default LoginPage

@@ -7,6 +7,7 @@ import { Raleway, Roboto } from 'next/font/google';
 import '../styles/globals.css';
 import { queryClient } from "@/config/queryClient";
 import 'react-toastify/dist/ReactToastify.css';
+import { CartProvider } from "@/context/CartContext";
 
 
 const raleway = Raleway({
@@ -25,7 +26,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <div id="root" className={`${raleway.variable} ${roboto.variable}`}>
-        <Component {...pageProps} />
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
         <ToastContainer />
       </div>
     </QueryClientProvider>

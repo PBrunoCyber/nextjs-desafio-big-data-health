@@ -19,15 +19,33 @@ const RegisterPage = () => {
         resolver: zodResolver(registerSchema),
     });
 
-    const { register } = useRegisterUser({
-        onSuccess: (data) => {
-            toast.success('Seja bem-vindo!');
+    const { register, isLoading } = useRegisterUser({
+        onSuccess: () => {
+            toast.success('Registrado com sucesso, agora faça o login!');
             router.push('/login');
         },
     })
 
     const onSubmit = (data: any) => {
-        register({ email: data.email, password: data.password, firstName: data.firstName, lastName: data.lastName })
+        register({ 
+            email: data.email, 
+            password: data.password, 
+            name: {
+                firstname: data.firstName, 
+                lastname: data.lastName
+            }, 
+            address: {
+                city: "Teresina",
+                geolocation: {
+                    lat: '-37.3159',
+                    long:'81.1496'
+                },
+                street: "Hello",
+                number: 3,
+                zipcode: '12926-3874'
+            },
+            phone: "1-570-236-7033"
+        })
     }
 
     return (
@@ -74,7 +92,7 @@ const RegisterPage = () => {
                         <p>Já possui cadastro?</p>
                         <LinkButton variant='text' href='/login'>Faça Log in</LinkButton>
                     </div>
-                    <SubmitButton variant='contained' className='font-bold' type='submit'>
+                    <SubmitButton isLoading={isLoading} variant='contained' className='font-bold' type='submit'>
                         Registrar
                     </SubmitButton>
                 </div>

@@ -31,7 +31,7 @@ export default function Home() {
         </Box>
         <Box maxWidth={"1200px"} className="bg-[#ddd] rounded-[20px] flex flex-col gap-[20px] items-center w-full px-[10px] py-[40px]">
           <h1 className="font-primary font-bold max-w-[500px] text-center">Apresentação das categorias de produtos</h1>
-          <Box className="flex gap-[20px] flex-wrap">
+          <Box className="flex gap-[20px] items-center justify-center flex-wrap">
           <CardCategory
             title="Roupas Masculinas"
             description="Encontre uma variedade de roupas masculinas para todos os estilos e ocasiões."

@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Link from 'next/link';
-import { Button } from '@mui/material';
+import { CircularProgress } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 const baseStyles = 'px-4 py-2 rounded-[100px] focus:outline-none transition';
 
@@ -15,18 +14,26 @@ const variantStyles = {
 };
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    isLoading: boolean;
     type: "button" | "submit" | "reset" | undefined,
     variant: 'outlined' | 'outlinedBlack' | 'contained' | 'text' | 'textBlack';
     className?: string;
 }
 
-const SubmitButton: React.FC<ButtonProps> = ({type, onClick, variant, children, className}) => {
+const SubmitButton: React.FC<ButtonProps> = ({ type, isLoading, onClick, variant, children, className }) => {
     const buttonClass = clsx(baseStyles, variantStyles[variant], className);
 
     return (
-        <Button type={type} onClick={onClick} className={buttonClass}>
+        <LoadingButton
+            loading={isLoading}
+            loadingIndicator={<CircularProgress size={20} className='text-[#ffffff]' />}
+            loadingPosition='center'
+            type={type}
+            onClick={onClick}
+            className={buttonClass}
+        >
             {children}
-        </Button>
+        </LoadingButton>
     )
 }
 
